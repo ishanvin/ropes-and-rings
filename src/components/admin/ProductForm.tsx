@@ -27,7 +27,7 @@ const ProductForm = ({ initialData, onSubmit, title }: ProductFormProps) => {
     const isCheckbox = event.target instanceof HTMLInputElement && event.target.type === 'checkbox';
     setFormData(current => ({
       ...current,
-      [name]: isCheckbox ? event.target.checked : name === 'price' ? Number(value) : value,
+      [name]: isCheckbox ? (event.target as HTMLInputElement).checked : name === 'price' ? Number(value) : value,
     }));
   };
 

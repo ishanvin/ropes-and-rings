@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = '919177954411';
+const WHATSAPP_NUMBER = '919848190896';
 
 const whatsappMessage = (productName?: string) => productName ? `Hi Ropes & Rings, I would like to order ${productName}. Please share the details.` : 'Hi Ropes & Rings, I would like to place an order. Please share the details.';
 
