@@ -40,7 +40,7 @@
 .product-info .description h3 {
   font-size: 1.1rem;
   margin-bottom: var(--spacing-sm);
-  color: var(--detail-blue);
+  color: var(--text-color);
 }
 
 .product-about-text,
@@ -59,7 +59,10 @@
   font-size: 0.92rem;
 }
 
-.product-info .purchase-note h3,
+.product-info .purchase-note h3 {
+  color: var(--text-color);
+}
+
 .product-info .purchase-note li {
   color: var(--detail-blue);
 }
