@@ -6,6 +6,12 @@ type CoverOverlayProps = {
   onDismiss: () => void
 }
 
+const owls = [
+  { position: 'top', label: 'Enter Ropes and Rings through the top owl' },
+  { position: 'left', label: 'Enter Ropes and Rings through the left owl' },
+  { position: 'bottom', label: 'Enter Ropes and Rings through the bottom owl' },
+]
+
 const CoverOverlay = ({ onDismiss }: CoverOverlayProps) => {
   const [isFadingOut, setIsFadingOut] = useState(false)
 
@@ -32,12 +38,17 @@ const CoverOverlay = ({ onDismiss }: CoverOverlayProps) => {
           loading="eager"
           decoding="sync"
         />
-        <button
-          className="cover-overlay__owl-hotspot"
-          type="button"
-          aria-label="Enter Ropes and Rings"
-          onClick={handleEnter}
-        />
+        <div className="cover-overlay__image-shade" aria-hidden="true" />
+        {owls.map((owl) => (
+          <button
+            className={`cover-overlay__owl-hotspot cover-overlay__owl-hotspot--${owl.position}`}
+            type="button"
+            aria-label={owl.label}
+            onClick={handleEnter}
+            key={owl.position}
+          />
+        ))}
+        <p className="cover-overlay__instruction">Click any owl to enter</p>
       </div>
     </div>
   )
