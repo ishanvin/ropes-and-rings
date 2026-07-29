@@ -33,8 +33,8 @@ const CoverOverlay = ({ onDismiss }: CoverOverlayProps) => {
           src={coverImage}
           alt="Colorful macramé owl wall hangings on a warm beige wall"
           className="cover-overlay__image"
-          width="896"
-          height="1152"
+          width="672"
+          height="1568"
           loading="eager"
           decoding="sync"
         />
