@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import CoverOverlay from './components/layout/CoverOverlay'
+import ScrollRestoration from './components/common/ScrollRestoration'
 import Home from './pages/Home'
 import Shop from './pages/Shop'
 import ProductDetail from './pages/ProductDetail'
@@ -26,6 +27,7 @@ const AppShell = () => {
 
   return (
     <>
+      <ScrollRestoration />
       <div className="app-container">
         <Navbar />
         <main className="main-content">
