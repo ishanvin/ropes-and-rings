@@ -32,7 +32,7 @@
   border: 0;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.9);
-  color: var(--text-color);
+  color: var(--detail-blue);
   font-size: 1.8rem;
   line-height: 1;
   cursor: pointer;
@@ -67,7 +67,7 @@
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background-color: var(--border-color);
+  background-color: rgba(95, 127, 156, 0.4);
   cursor: pointer;
   transition: var(--transition-fast);
 }
@@ -75,7 +75,13 @@
 .gallery-dots button.active {
   width: 24px;
   border-radius: 999px;
-  background-color: var(--accent-color);
+  background-color: var(--detail-blue);
+}
+
+.gallery-arrow:focus-visible,
+.gallery-dots button:focus-visible {
+  outline: 2px solid var(--detail-blue-secondary);
+  outline-offset: 3px;
 }
 
 @media (max-width: 768px) {
@@ -83,4 +89,3 @@
     display: none;
   }
 }
-

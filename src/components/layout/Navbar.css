@@ -52,7 +52,7 @@
 }
 
 .navbar-search input:focus {
-  border-color: var(--accent-color);
+  border-color: var(--detail-blue-secondary);
   width: 250px;
 }
 
