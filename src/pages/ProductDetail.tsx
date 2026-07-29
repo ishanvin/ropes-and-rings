@@ -32,7 +32,7 @@ const ProductDetail = () => {
           <p className="category">{product.category}</p>
           <h1>{product.name}</h1>
           <p className="price">{priceLabel}</p>
-          <div className="description">
+          <div className="description product-about-text">
             <h3>Description</h3>
             <p>{product.description}</p>
           </div>

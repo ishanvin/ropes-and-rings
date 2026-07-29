@@ -1,0 +1,60 @@
+.cover-overlay {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fbf1e5 0%, #f6dfcc 100%);
+  opacity: 1;
+  transition: opacity 420ms ease;
+}
+
+.cover-overlay--leaving {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cover-overlay__frame {
+  position: relative;
+  width: min(100vw, 77.7778vh);
+  aspect-ratio: 7 / 9;
+}
+
+.cover-overlay__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+}
+
+.cover-overlay__owl-hotspot {
+  position: absolute;
+  left: 38%;
+  top: 15%;
+  width: 20%;
+  height: 25%;
+  border-radius: 18px;
+  cursor: pointer;
+  background: transparent;
+  transform-origin: center;
+  transition: transform 220ms ease, box-shadow 220ms ease, background-color 220ms ease;
+}
+
+.cover-overlay__owl-hotspot:hover,
+.cover-overlay__owl-hotspot:focus-visible {
+  transform: scale(1.03);
+  background-color: rgba(255, 226, 187, 0.04);
+  box-shadow: 0 0 34px rgba(255, 195, 120, 0.32);
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-overlay {
+    transition-duration: 1ms;
+  }
+
+  .cover-overlay__owl-hotspot {
+    transition: none;
+  }
+}

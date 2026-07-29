@@ -6,6 +6,7 @@
   --accent-color: #bcaaa4;
   --text-color: #4e342e; /* Dark Brown/Gray */
   --text-light: #795548;
+  --detail-blue: #1f5fbf;
   --bg-color: #ffffff;
   --bg-soft: #fffdfd;
   --border-color: #eee0e0;
@@ -67,8 +68,8 @@ img {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .fade-in {

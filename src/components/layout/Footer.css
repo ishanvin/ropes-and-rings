@@ -38,6 +38,10 @@
   color: var(--accent-color);
 }
 
+.footer-policy-note {
+  margin-top: var(--spacing-sm);
+}
+
 .footer-bottom {
   text-align: center;
   padding-top: var(--spacing-lg);

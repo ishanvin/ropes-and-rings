@@ -42,6 +42,12 @@
   margin-bottom: var(--spacing-sm);
 }
 
+.product-about-text,
+.product-about-text h3,
+.product-about-text p {
+  color: var(--detail-blue);
+}
+
 .product-info .purchase-note {
   margin-bottom: var(--spacing-lg);
   padding: var(--spacing-md);

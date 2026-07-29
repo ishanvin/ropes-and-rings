@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import { uploadProductImage } from '../lib/productStorage';
+import { localImageProducts } from '../lib/localImageProducts';
 import type { Product, ProductDraft } from '../types/product';
 
 type ProductRow = Omit<Product, 'imageUrl'>;
@@ -83,9 +84,11 @@ export const StoreProvider = ({ children }: { children: React.ReactNode }) => {
       .order('created_at', { ascending: false });
 
     if (queryError) {
+      setProducts(localImageProducts);
       setError(queryError.message);
     } else {
-      setProducts((data as ProductRow[]).map(toProduct));
+      const remoteProducts = (data as ProductRow[]).map(toProduct);
+      setProducts(remoteProducts.length > 0 ? remoteProducts : localImageProducts);
     }
     setIsLoading(false);
   }, []);

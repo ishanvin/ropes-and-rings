@@ -18,10 +18,10 @@ const Footer = () => {
         </div>
         <div className="footer-section">
           <h4>Customer Service</h4>
-          <ul style={{ marginBottom: '0.5rem' }}>
-          <a href={getWhatsAppOrderUrl()} target="_blank" rel="noopener noreferrer">Order on WhatsApp</a>
-          <p style={{ marginTop: '0.8rem', fontSize: '0.9rem', color: '#666' }}>Courier charges extra.<br />No Cash on Delivery (COD).</p>
+          <ul>
+            <li><a href={getWhatsAppOrderUrl()} target="_blank" rel="noopener noreferrer">Order on WhatsApp</a></li>
           </ul>
+          <p className="footer-policy-note">Courier charges extra.<br />No Cash on Delivery (COD).</p>
         </div>
         <div className="footer-section">
           <h4>Connect</h4>

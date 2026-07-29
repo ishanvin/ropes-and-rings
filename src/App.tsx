@@ -1,6 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
+import CoverOverlay from './components/layout/CoverOverlay'
 import Home from './pages/Home'
 import Shop from './pages/Shop'
 import ProductDetail from './pages/ProductDetail'
@@ -10,9 +12,20 @@ import EditProduct from './pages/EditProduct'
 import AdminLogin from './pages/AdminLogin'
 import AdminRoute from './components/admin/AdminRoute'
 
-function App() {
+const AppShell = () => {
+  const location = useLocation()
+  const [coverDismissed, setCoverDismissed] = useState(
+    () => sessionStorage.getItem('ropes-rings-cover-dismissed') === 'true',
+  )
+  const showCover = location.pathname === '/' && !coverDismissed
+
+  const dismissCover = () => {
+    sessionStorage.setItem('ropes-rings-cover-dismissed', 'true')
+    setCoverDismissed(true)
+  }
+
   return (
-    <Router>
+    <>
       <div className="app-container">
         <Navbar />
         <main className="main-content">
@@ -30,6 +43,15 @@ function App() {
         </main>
         <Footer />
       </div>
+      {showCover && <CoverOverlay onDismiss={dismissCover} />}
+    </>
+  )
+}
+
+function App() {
+  return (
+    <Router>
+      <AppShell />
     </Router>
   )
 }
