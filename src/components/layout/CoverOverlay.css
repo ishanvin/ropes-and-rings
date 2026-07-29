@@ -2,6 +2,8 @@
   position: fixed;
   z-index: 1000;
   inset: 0;
+  height: 100vh;
+  height: 100dvh;
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -18,6 +20,7 @@
 .cover-overlay__frame {
   position: relative;
   width: min(100vw, 42.8571vh);
+  width: min(100vw, 42.8571dvh);
   aspect-ratio: 3 / 7;
 }
 
@@ -108,6 +111,7 @@
   z-index: 3;
   left: 50%;
   bottom: clamp(1rem, 4vh, 3rem);
+  bottom: clamp(1rem, 4dvh, 3rem);
   width: max-content;
   max-width: calc(100% - 2rem);
   padding: 0.45rem 0.85rem;

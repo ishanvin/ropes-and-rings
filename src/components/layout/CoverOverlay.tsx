@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import coverImage from '../../../Images/coverpage.jpg'
 import './CoverOverlay.css'
 
@@ -14,6 +14,40 @@ const owls = [
 
 const CoverOverlay = ({ onDismiss }: CoverOverlayProps) => {
   const [isFadingOut, setIsFadingOut] = useState(false)
+
+  useEffect(() => {
+    const scrollY = window.scrollY
+    const bodyStyle = document.body.style
+    const rootStyle = document.documentElement.style
+    const previousBodyStyles = {
+      left: bodyStyle.left,
+      overflow: bodyStyle.overflow,
+      position: bodyStyle.position,
+      right: bodyStyle.right,
+      top: bodyStyle.top,
+      width: bodyStyle.width,
+    }
+    const previousRootOverflow = rootStyle.overflow
+
+    rootStyle.overflow = 'hidden'
+    bodyStyle.overflow = 'hidden'
+    bodyStyle.position = 'fixed'
+    bodyStyle.top = `-${scrollY}px`
+    bodyStyle.left = '0'
+    bodyStyle.right = '0'
+    bodyStyle.width = '100%'
+
+    return () => {
+      rootStyle.overflow = previousRootOverflow
+      bodyStyle.overflow = previousBodyStyles.overflow
+      bodyStyle.position = previousBodyStyles.position
+      bodyStyle.top = previousBodyStyles.top
+      bodyStyle.left = previousBodyStyles.left
+      bodyStyle.right = previousBodyStyles.right
+      bodyStyle.width = previousBodyStyles.width
+      window.scrollTo(0, scrollY)
+    }
+  }, [])
 
   const handleEnter = () => {
     if (isFadingOut) return
@@ -48,8 +82,8 @@ const CoverOverlay = ({ onDismiss }: CoverOverlayProps) => {
             key={owl.position}
           />
         ))}
-        <p className="cover-overlay__instruction">Click any owl to enter</p>
       </div>
+      <p className="cover-overlay__instruction">Click any owl to enter</p>
     </div>
   )
 }
