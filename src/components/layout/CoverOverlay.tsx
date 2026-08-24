@@ -73,6 +73,12 @@ const CoverOverlay = ({ onDismiss }: CoverOverlayProps) => {
           decoding="sync"
         />
         <div className="cover-overlay__image-shade" aria-hidden="true" />
+        <div className="cover-overlay__brand" aria-label="Ropes and Rings — Handcrafted Macramé">
+          <p className="cover-overlay__brand-name">
+            <span>Ropes</span><span className="cover-overlay__brand-accent">&amp; Rings</span>
+          </p>
+          <p className="cover-overlay__brand-subtitle">Handcrafted Macramé</p>
+        </div>
         {owls.map((owl) => (
           <button
             className={`cover-overlay__owl-hotspot cover-overlay__owl-hotspot--${owl.position}`}

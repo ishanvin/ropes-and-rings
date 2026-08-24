@@ -38,6 +38,49 @@
   pointer-events: none;
 }
 
+.cover-overlay__brand {
+  position: absolute;
+  z-index: 3;
+  top: 5.5%;
+  left: 7%;
+  max-width: 86%;
+  color: #4d342e;
+  font-family: var(--font-family-serif);
+  pointer-events: none;
+}
+
+.cover-overlay__brand-name {
+  margin: 0;
+  font-size: clamp(1rem, 4.2vh, 2.5rem);
+  font-size: clamp(1rem, 4.2dvh, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 0.95;
+  text-shadow: 0 1px 8px rgba(255, 249, 240, 0.35);
+  white-space: nowrap;
+}
+
+.cover-overlay__brand-name span {
+  display: block;
+}
+
+.cover-overlay__brand-accent {
+  color: var(--accent-color);
+}
+
+.cover-overlay__brand-subtitle {
+  margin: clamp(0.3rem, 0.85vh, 0.55rem) 0 0;
+  margin-top: clamp(0.3rem, 0.85dvh, 0.55rem);
+  color: rgba(77, 52, 46, 0.72);
+  font-family: var(--font-family-serif);
+  font-size: clamp(0.58rem, 1.15vh, 0.75rem);
+  font-size: clamp(0.58rem, 1.15dvh, 0.75rem);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
 .cover-overlay__owl-hotspot {
   position: absolute;
   border-radius: 18px;
