@@ -124,8 +124,8 @@
 }
 
 .our-story__inner {
-  padding-top: clamp(4.5rem, 9vw, 7.5rem);
-  padding-bottom: clamp(4.5rem, 9vw, 7.5rem);
+  padding-top: clamp(6rem, 12vw, 10rem);
+  padding-bottom: clamp(6rem, 12vw, 10rem);
 }
 
 .our-story__intro {
