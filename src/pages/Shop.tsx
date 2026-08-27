@@ -8,28 +8,49 @@ import './Shop.css';
 const Shop = () => {
   const { products, isLoading, error } = useStore();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState(searchParams.get('search') ?? '');
   const [selectedCategory, setSelectedCategory] = useState(searchParams.get('category') ?? 'All');
+  const hasProducts = products.length > 0;
 
   const categories = ['All', ...new Set(products.map(p => p.category))];
 
   useEffect(() => {
+    setSearchQuery(searchParams.get('search') ?? '');
     setSelectedCategory(searchParams.get('category') ?? 'All');
   }, [searchParams]);
 
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
+    const nextSearchParams = new URLSearchParams(searchParams);
 
     if (category === 'All') {
-      setSearchParams({});
+      nextSearchParams.delete('category');
+      setSearchParams(nextSearchParams);
       return;
     }
 
-    setSearchParams({ category });
+    nextSearchParams.set('category', category);
+    setSearchParams(nextSearchParams);
   };
 
+  const handleSearchChange = (query: string) => {
+    setSearchQuery(query);
+    const nextSearchParams = new URLSearchParams(searchParams);
+    const normalizedQuery = query.trim();
+
+    if (normalizedQuery) {
+      nextSearchParams.set('search', normalizedQuery);
+    } else {
+      nextSearchParams.delete('search');
+    }
+
+    setSearchParams(nextSearchParams, { replace: true });
+  };
+
+  const normalizedSearchQuery = searchQuery.trim().toLowerCase();
   const filteredProducts = products.filter(product => {
-    const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = !normalizedSearchQuery || [product.name, product.category, product.description]
+      .some(value => value.toLowerCase().includes(normalizedSearchQuery));
     const matchesCategory = selectedCategory === 'All' || product.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
@@ -56,7 +77,7 @@ const Shop = () => {
               type="text" 
               placeholder="Search products..." 
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => handleSearchChange(e.target.value)}
             />
           </div>
         </div>
@@ -69,9 +90,9 @@ const Shop = () => {
       </div>
 
       {isLoading && <div className="no-results"><p>Loading products…</p></div>}
-      {error && <div className="no-results"><p>Unable to load products: {error}</p></div>}
+      {error && !hasProducts && <div className="no-results"><p>Unable to load products: {error}</p></div>}
 
-      {!isLoading && !error && filteredProducts.length === 0 && (
+      {!isLoading && (hasProducts || !error) && filteredProducts.length === 0 && (
         <div className="no-results">
           <p>No products found matching your criteria.</p>
         </div>
