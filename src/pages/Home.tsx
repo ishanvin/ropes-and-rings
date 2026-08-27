@@ -37,6 +37,41 @@ const Home = () => {
           ))}
         </div>
       </section>
+
+      <section className="our-story" aria-labelledby="our-story-title">
+        <div className="container our-story__inner">
+          <header className="our-story__intro">
+            <p className="our-story__eyebrow">Since 1995 · Hyderabad</p>
+            <h2 id="our-story-title">Our Story</h2>
+            <p>
+              The heart behind Ropes &amp; Rings discovered the magic of knotting as a school child. What began as a hobby, nurtured by teachers, became a life’s purpose in 1995. From a home in Hyderabad, every creation is handcrafted individually — no machines, just love, patience, and fine cotton ropes.
+            </p>
+          </header>
+
+          <div className="our-story__details">
+            <article className="our-story__block">
+              <h3>What We Create</h3>
+              <p>Beautiful macramé art for everyday use — decorative pot hangers, planters, owls, and thoughtful handmade décor.</p>
+            </article>
+            <article className="our-story__block">
+              <h3>Made for Meaningful Gifting</h3>
+              <ul>
+                <li>Return gifts for birthdays and parties</li>
+                <li>Festival gifts for Diwali, Christmas, Valentine’s Day, and more</li>
+                <li>Utility gifts including keychains, bag tags, doll keychains, waist belts, and curtain ropes</li>
+              </ul>
+            </article>
+          </div>
+
+          <div className="our-story__closing">
+            <p className="our-story__statement">Each knot tells a story.</p>
+            <p className="our-story__highlight">
+              <span>ROPES &amp; RINGS, Hyderabad</span>
+              <span>100% Handmade · Eco-Friendly · Custom Orders Available</span>
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
