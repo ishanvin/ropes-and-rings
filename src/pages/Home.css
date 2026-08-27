@@ -121,11 +121,8 @@
 .our-story {
   background: #fbf4e8;
   color: #1f3a5f;
-}
-
-.our-story__inner {
-  padding-top: clamp(6rem, 12vw, 10rem);
-  padding-bottom: clamp(6rem, 12vw, 10rem);
+  padding-top: clamp(11rem, 19vw, 16rem);
+  padding-bottom: clamp(11rem, 19vw, 16rem);
 }
 
 .our-story__intro {
